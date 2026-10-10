@@ -1,0 +1,19 @@
+{
+  "model": "DecisionTreeClassifier",
+  "max_depth": 3,
+  "features": [
+    "weight_kg",
+    "height_cm",
+    "tail_to_body"
+  ],
+  "classes": [
+    "Dog",
+    "Lion",
+    "Rat",
+    "Spider"
+  ],
+  "train_size": 140,
+  "test_size": 60,
+  "test_accuracy": 1.0,
+  "random_state": 42
+}
