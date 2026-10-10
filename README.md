@@ -74,7 +74,7 @@ model = joblib.load("models/decision_tree.joblib")
 
 ## Discussion
 1. **Why do we need labels?** Labels are the correct answers. Without them the model has nothing to check its guesses against, so it cannot learn which mix of weight, height and tail ratio belongs to which animal.
-2. **What would the model predict for a cat, and why is that a problem?** A cat is not one of the 4 classes, so the model is still forced to answer Rat, Dog, Lion or Spider. A cat is shorter than 27.4 cm and has a long tail, so it would most likely be called a Rat. The problem is that a supervised model can only predict labels it was trained on, and it gives a wrong answer with no warning that the animal is something new.
+2. **What would the model predict for a cat, and why is that a problem?** A cat is not one of the 4 classes, so the model is still forced to answer Rat, Dog, Lion or Spider. A cat is shorter than 27.4 cm, so it goes to the small animal side of the tree. Its tail is about 0.6 of its body length, which is below the 0.631 split, so the model would most likely call it a Spider. The problem is that a supervised model can only predict labels it was trained on, and it gives a wrong answer with no warning that the animal is something new.
 3. **Which feature did the tree use first, and why?** `height_cm` (height_cm <= 27.4). One height question splits the small animals (Rat, Spider) from the big ones (Dog, Lion), which separates the classes better than any other single question.
 4. **How does `max_depth` affect accuracy?** With max_depth = 1 the accuracy was 50%, because one question can only split the data into 2 groups, so at most 2 of the 4 animals can be told apart. With max_depth = 2 the accuracy jumped to 100%, and max_depth = 3 also gave 100%. Two questions are enough for this dataset, so going deeper added nothing.
 
@@ -84,4 +84,4 @@ model = joblib.load("models/decision_tree.joblib")
 3. The final cells save the data to `data/` and the model to `models/`.
 
 ## Requirements
-`numpy`, `pandas`, `matplotlib`, `scikit-learn`, `joblib`
+`numpy`, `pandas`, `matplotlib`, `scikit-learn`, `joblib`cd ~/Lab1_SupervisedL
